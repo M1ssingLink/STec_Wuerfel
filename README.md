@@ -1,1 +1,0 @@
-# STec_Wuerfel

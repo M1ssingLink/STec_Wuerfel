@@ -1,0 +1,75 @@
+Elektronischer Würfel
+
+Im Folgenden wird erklärt, wie der vorliegende Elektronischer Würfel entwickelt wurde, welcher auf Knopfdruck eine Zahl zwischen 1 und 6 via 7-LED´s anzeigt.
+
+Grundlagen :
+
+Verwendet wurde :
+
+Zum Erstellen des Quellcodes:
+
+Arduino Web-Editor, erreichbar unter https://create.arduino.cc
+
+Hardware:
+
+-> Arduino Uno
+-> Steckbrett
+-> 7 LED´s
+-> 7 330 Ohm Widerstände
+-> 1 Taster
+-> 1 10kOhm Widerstand
+-> 12 M->M Verbindungskabel
+-> USB-B Kabel
+
+Setup:
+
+1.-> LED´s in seperate Strombahnen des Steckbretts einstecken, auf der längeren (+)-Seite mit Kabel auf den Arduino an PIN der Wahl anfügen, auf der kürzeren Seite mit 330-Ohm-Widerstand an die Ground-Bahn des Steckbretts anfügen.
+
+2.-> Diese Ground-Bahn via Kabel mit dem Ground-Anschluss des Arduino verbinden.
+
+3.-> Taster an eine seperate Bahn im Steckbrett einsetzen, diesen auf einem Kontakt auf den 5V-Anschluss des Arduinos verkabeln, auf der anderen Seite via Kabel an den gewünschten Arduino-PIN, welcher später in der Software den Knopfdruck abfragt.
+Außerdem auf dieser Seite einen weiteren Ground-Zugang legen, welcher in die Groundbahn des Steckbretts läuft, dieser wird mit einem 10kOhm-Widerstand realisiert, um Messfehlern entgegenzuwirken.
+
+Die Hardwarekomponente ist soweit abgeschlossen, es folgt die Softwarekomponente:
+
+Empfohlen wird, sämtliche LED´s wie auch den Taster vor dem ausgiebigen Testen der Programmsoftware auf defekte Teile zu überprüfen, da dies einiges an Fehlersuche in der Software sparen kann, dies ist durch einfache Einspeisung der 5V-Leitung an die einzelnen LED´s realisierbar.
+
+Software:
+
+Wie bereits zuvor erwähnt wurde der Arduino-WebEditor verwendet, welcher auch in Heruntergeladener Form existiert und die gleiche Funktion erfüllt.
+
+Für diesen gibt es weitreichende Tutorials, welche alle notwendigen Funktionen für die Erstellung dieses Würfels liefert.
+
+Modularisiert wurde der Code in 3 Teile :
+
+wurfel.ino
+
+Hauptklasse, enthält die für Arduino typischen funktionen setup() und loop(), sowie alle direkten Funktionsaufrufe.
+
+initialize.cpp
+
+Beinhaltet alle Unterfunktionen und ihre Deklarationen, hier findet der größte Teil der Logik und Rechenarbeit statt.
+
+initialize.h
+
+Headerfunktion für initialize.cpp, hier werden die einzelnen Funktionen erklärt und definiert.
+
+
+In der vorliegenden Programmversion wurden 3 Testfälle realisiert, welche die Funktion des Würfels sicherstellen, um diese auszuführen muss in der wuerfel.ino die jeweilige Variable auf 1 gesetzt werden.
+
+int LEDTestConsecutive = 0;
+int LEDTestSimultaneous = 0;
+int rollTestState = 0;
+
+->
+int LEDTestConsecutive = 1;
+->
+int LEDTestSimultaneous = 1;
+->
+int rollTestState = 1;
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+Elektronischer Würfel
+
+
+Auf Tastendruck gibt der vorliegende Elektronische Würfel eine Zahl zwischen 1 und 6 über 7-LED´s wieder.
+
+Vorbedingungen:
+
+1. Der Arduino Uni ist via USB-B-Kabel mit einer Stromquelle verbunden.
+2. Der mitgelieferte Sourcecode ist auf dem Arduino hochgeladen.
+
+Falls noch nicht erfolgt:
+
+-> Sourcecode via create.arduino.cc/editor importieren und auf via USB-B Kabel verbundenem Arduino Uno hochladen
+
+Wenn Codehochladung erfolgreich war, sollte der Würfel eine Startsequenz aus zufälligen Zahlen anzeigen, welche für ca. 3 Sekunden zu sehen ist.
+
+Danach einfach zum würfeln den Taster betätigen, eine zufällige Zahl zwischen 1 und 6 sollte mit den LED´s abgebildet werden.
+
+
+
+

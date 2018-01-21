@@ -5,11 +5,10 @@
 
 #include "initialize.h"
 
-
-
-int buttonState = 0;
-int testState = 0;
-int test2 = 0;
+/* Testfunctions, swap the 0´s with 1´s to enable tests */
+int LEDTestConsecutive = 0;
+int LEDTestSimultaneous = 0;
+int rollTestState = 0;
 
 /*
  * Initializer for the LED´s, and the Button
@@ -18,6 +17,7 @@ void setup() {
     Serial.begin(9600);
     initializer();
     startAnimation();
+
 }
 
 /*
@@ -26,6 +26,7 @@ void setup() {
  */
 void loop() {
 
+    int buttonState = 0;
     buttonState = digitalRead(triggerButton);
 
     if (buttonState == HIGH) {
@@ -35,12 +36,17 @@ void loop() {
         reset();
 
     }
-    
+
     /* Tests if enabled */
-    if (testState == 1) {
-        LEDTest1();
+    if (LEDTestConsecutive == 1) {
+        LEDTestConsecutively();
     }
-    if (test2 == 1) {
-        LEDTest2();
+    if (LEDTestSimultaneous == 1) {
+        LEDTestSimultaneously();
+    }
+    if (rollTestState == 1) {
+        rollTester(1, 7);
     }
 }
+
+

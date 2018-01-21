@@ -1,14 +1,13 @@
 /*
- * Headerdata for initialize, builds the prototypes for the functions used in there. 
+ * Headerdata for the dice.cpp, builds the prototypes for the functions used in there. 
  */
 
 #ifndef initialize_h
 #define initialize_h
-
 #include "Arduino.h"
 
-
 extern int triggerButton;
+
 
 
 /*
@@ -90,14 +89,27 @@ void LEDTestML();
  */
 void LEDTestLL();
 
+/*
+ * Lights up all LED in consecutive order, if testState variable is set to 1
+ */
+void LEDTestConsecutively();
 
-void LEDTest1();
+/*
+ * Lights up all LED at the same time, if testState2 variable is set to 1
+ */
+void LEDTestSimultaneously();
 
-void LEDTest2();
+/*
+ * Rolls a random Number and prints it into the Serial Output
+ */
+void rollTester(int lowerBorder, int upperBorder);
 
-void rollTester();
-
+/*
+ * Plays the starting Animation of the dice, rolling and displaying random numbers with a small
+ * delay for a total of 3 seconds
+ */
 void startAnimation();
+
 
 #endif      
 
